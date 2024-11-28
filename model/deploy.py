@@ -3,7 +3,6 @@ import torch.nn as nn
 from torchvision import transforms
 from net import Net
 from PIL import Image
-import numpy as np
 
 # Load the trained model
 def load_model(model_path):

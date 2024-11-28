@@ -1,4 +1,3 @@
-from tqdm import tqdm
 import torch
 
 def GetCorrectPredCount(pPrediction, pLabels):
@@ -6,13 +5,12 @@ def GetCorrectPredCount(pPrediction, pLabels):
 
 def train(model, device, train_loader, optimizer, criterion):
   model.train()
-  pbar = tqdm(train_loader)
 
   train_loss = 0
   correct = 0
   processed = 0
 
-  for batch_idx, (data, target) in enumerate(pbar):
+  for batch_idx, (data, target) in enumerate(train_loader):
     data, target = data.to(device), target.to(device)
     optimizer.zero_grad()
 
@@ -29,8 +27,6 @@ def train(model, device, train_loader, optimizer, criterion):
 
     correct += GetCorrectPredCount(pred, target)
     processed += len(data)
-
-    pbar.set_description(desc= f'Train: Loss={loss.item():0.4f} Batch_id={batch_idx} Accuracy={100*correct/processed:0.2f}')
 
   return 100*correct/processed, train_loss/len(train_loader)
 
