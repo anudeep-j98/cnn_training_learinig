@@ -4,29 +4,39 @@
 
 This project implements a convolutional neural network (CNN) for classifying handwritten digits from the MNIST dataset using PyTorch. The model is designed to achieve high accuracy while maintaining a low number of parameters.
 
-## Project Structure
-
-│
-├── .github/
-│   └── workflows/
-│       └── ci-cd.yml
-│
-├── model/
-│   ├── net.py          # Model architecture
-│   └── train.py        # Training script
-├── tests/
-│   └── test_model.py   # Testing script
-│
-├── requirements.txt     # Required Python packages
-└── README.md            # Project documentation
-
-
 ## Model Architecture
 
 The model is defined in `model/net.py` and consists of the following layers:
 
 - **Convolutional Layers**: Four convolutional layers with ReLU activation.
+- **BatchNorm** - Twoi layers of batch normalization
 - **Fully Connected Layers**: Two fully connected layers leading to the output layer.
+
+```
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 4, 26, 26]              40
+            Conv2d-2            [-1, 8, 24, 24]             296
+       BatchNorm2d-3            [-1, 8, 12, 12]              16
+            Conv2d-4           [-1, 16, 10, 10]           1,168
+            Conv2d-5             [-1, 32, 8, 8]           4,640
+       BatchNorm2d-6             [-1, 32, 4, 4]              64
+           Flatten-7                  [-1, 512]               0
+            Linear-8                   [-1, 35]          17,955
+            Linear-9                   [-1, 10]             360
+================================================================
+Total params: 24,539
+Trainable params: 24,539
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.10
+Params size (MB): 0.09
+Estimated Total Size (MB): 0.20
+----------------------------------------------------------------
+```
+
 
 ### Model Characteristics
 
