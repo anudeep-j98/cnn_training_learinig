@@ -3,7 +3,6 @@ import torch.optim as optim
 import torch.nn as nn
 from torchvision import datasets, transforms
 from net import Net
-from tqdm import tqdm
 from eval import train,  test
 
 # Set device
