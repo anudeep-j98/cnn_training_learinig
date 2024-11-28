@@ -1,6 +1,6 @@
 # MNIST Classification with PyTorch
 
-![Build Status](https://github.com/username/repository/actions/workflows/ci-cd.yml/badge.svg)
+[![CI/CD Pipeline](https://github.com/anudeep-j98/cnn_training_learinig/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/anudeep-j98/cnn_training_learinig/actions/workflows/ci-cd.yml)
 
 This project implements a convolutional neural network (CNN) for classifying handwritten digits from the MNIST dataset using PyTorch. The model is designed to achieve high accuracy while maintaining a low number of parameters.
 
